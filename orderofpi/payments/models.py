@@ -4,7 +4,7 @@ from ..contracts.models import Contract
 
 # Transaction model
 class Transaction(models.Model):
-    contract = models.ForeignKey(Contract, on_delete=models.CASCADE)
+    contract = models.ForeignKey(Contract, on_delete=models.PROTECT)
 
     # Transaction basic details
     TYPE_CHOICES = (
