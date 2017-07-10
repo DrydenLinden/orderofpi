@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd party apps
+    'crispy_forms',
 
     # orderofpi apps
     'contracts',
@@ -127,7 +128,9 @@ USE_TZ = True
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "_static"),
 )
-
 STATIC_ROOT = os.path.join(BASE_DIR, "_static_root")
-
 STATIC_URL = "/static/"
+
+
+# Third party app settings
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

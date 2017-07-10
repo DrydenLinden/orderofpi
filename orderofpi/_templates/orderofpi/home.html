@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="text-center">Order of Pi <small>UVic Chatper</small></h1>
+    <br>
+    <img alt="UVic Logo" src="https://pbs.twimg.com/profile_images/663840484800901120/UnBWhPzn.jpg" style="width: 100px; display:block; margin:auto;">
+    <h1 class="text-center">Order of Pi <br><small>UVic Engineering Student Society</small></h1>
+    <div>
+        <br><br>
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4 col-sm-8 col-sm-offset-2">
+                <h5 class="text-center">
+                    We are the UVic Engineering Student Society and we host an event every year called the <b>Order of Pi!</b>
+                    It's a celebration of the number that us engineers hold dearly to our hearts... &#960;! This fun event is to raise money towards charities while making everyone laugh at the same time.
+                </h5>
+            </div>
+        </div>
+        <br><br>
+    </div>
+    <div class="text-center">
+        <a class="btn btn-info" href="{% url 'create_contract' %}">Create a Contract!</a>
+        <a class="btn btn-info" href="">Volunteer!</a>
+    </div>
 {% endblock content %}
