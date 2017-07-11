@@ -7,6 +7,7 @@ class Contract(models.Model):
     issuer = models.CharField(max_length=30)
     indicated_value = models.DecimalField(max_digits=10, decimal_places=2)
     issued_date = models.DateField(auto_now_add=True)
+    charges = models.CharField(max_length=500)
 
     # If the contract allows funds to be added using an extension id
     extend_id = models.CharField(max_length=60, null=True)

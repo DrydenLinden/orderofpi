@@ -1,0 +1,12 @@
+.banner {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+.banner-light {
+    background-color: lightgray;
+}
+
+.banner-dark {
+    background-color: gray;
+}

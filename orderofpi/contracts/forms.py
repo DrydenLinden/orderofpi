@@ -6,4 +6,4 @@ from .models import Contract
 class ContractForm(ModelForm):
     class Meta:
         model = Contract
-        fields = ['target', 'issuer', 'indicated_value', 'extend_id', 'trial_date', 'trial_location']
+        fields = ['issuer', 'target', 'charges', 'indicated_value', 'extend_id', 'trial_date', 'trial_location']

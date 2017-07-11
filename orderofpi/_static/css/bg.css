@@ -1,0 +1,15 @@
+.bg-img {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.bg-home {
+    margin-top: -20px;
+    background-image: url('https://c1.staticflickr.com/8/7146/6761342729_d80de54790_b.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-txt {
+    color: white;
+}
