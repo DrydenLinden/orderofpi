@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # 3rd party apps
     'crispy_forms',
+    'datetimewidget',
 
     # orderofpi apps
     'contracts',
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'orderofpi.urls'

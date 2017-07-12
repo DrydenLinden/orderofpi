@@ -25,7 +25,7 @@ class Volunteer(models.Model):
         ('@sms.rogers.com', 'Rogers Wireless'),
         ('@msg.telus.com', 'Telus Mobility'),
     )
-    phone_carrier = models.CharField(max_length=30, choices=CARRIER_CHOICES, null=True)
+    phone_carrier = models.CharField(max_length=30, choices=CARRIER_CHOICES, blank=True)
     phone = models.CharField(max_length=15)
 
     # Volunteer positions
@@ -35,6 +35,10 @@ class Volunteer(models.Model):
     inquisitor = models.BooleanField(default=False)
     counselor = models.BooleanField(default=False)
     undertaker = models.BooleanField(default=False)
+
+
+    def __str__(self):
+        return self.name
 
 
 # Volunteer availablity
