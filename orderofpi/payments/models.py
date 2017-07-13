@@ -17,5 +17,5 @@ class Transaction(models.Model):
     email = models.EmailField()
 
     # Stripe attributes, can be empty due to cash transaction
-    stripe_status = models.CharField(max_length=50, null=True)
-    stripe_id = models.CharField(max_length=20, null=True)
+    stripe_status = models.CharField(max_length=50, blank=True)
+    stripe_id = models.CharField(max_length=20, blank=True)

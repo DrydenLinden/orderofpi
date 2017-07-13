@@ -11,7 +11,10 @@ def create_contract(request):
 
     if contract_form.is_valid():
         contract_form.save()
-        return HttpResponseRedirect(reverse('home'))
+
+        # TODO: Need to send out an email out here
+
+        return HttpResponseRedirect(reverse('sent_contract'))
 
     context = {
         'contract_form': contract_form,
@@ -25,4 +28,3 @@ def extend_contract(request):
     template = "contracts/extend_contract.html"
     context = {}
     return render(request, template, context)
-
