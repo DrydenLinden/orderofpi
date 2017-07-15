@@ -18,4 +18,4 @@ class Transaction(models.Model):
 
     # Stripe attributes, can be empty due to cash transaction
     stripe_status = models.CharField(max_length=50, blank=True)
-    stripe_id = models.CharField(max_length=20, blank=True)
+    stripe_id = models.CharField(max_length=50, blank=True)

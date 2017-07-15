@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <br>
+    <img alt="UVic Logo" src="https://pbs.twimg.com/profile_images/663840484800901120/UnBWhPzn.jpg" style="width: 100px; display:block; margin:auto;">
+    <h1 class="text-center">Order of Pi <br><small>Donation</small></h1>
+    <div class="banner">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4 col-sm-8 col-sm-offset-2">
+                <div class="form-group">
+                    <label for="donation">Donation Amount:</label>
+                    <input type="text" id="donation" value="${{ contract.indicated_value }}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="target">Contract Target:</label>
+                    <input type="text" id="target" value="{{ contract.target }}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="trial_date">Trial Date:</label>
+                    <input type="text" id="trial_date" value="{{ contract.trial_date }}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="trial_location">Trial Location:</label>
+                    <input type="text" id="trial_location" value="{{ contract.trial_location }}" readonly>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <form action="/payments/checkout/" method="POST" >
+                            <input type="hidden" name="contract_id" value="{{ contract_id }}"/>
+                            {% csrf_token %}
+                            <script
+                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="{{ stripe_key }}"
+                                    data-name="UVic Order of Pi"
+                                    data-description="Donation"
+                                    data-amount="{{ indicated_value }}"
+                                    data-allow-remember-me="false">
+                            </script>
+                        </form>
+                        <div class="text-center">
+                            <form action="/payments/later/" method="POST" >
+                                {% csrf_token %}
+                                <input class="btn btn-success" type="submit" value="Pay Later">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -136,3 +136,7 @@ STATIC_URL = "/static/"
 
 # Third party app settings
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+#Stripe test API Key
+STRIPE_TEST_API_KEY = 'pk_test_zM9f2yKI2cQDOisknptf6cTT'
+STRIPE_TEST_SECRET_API_KEY = 'sk_test_c6vmMkXKQFWDImHo4evkAbbw'
