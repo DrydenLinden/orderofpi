@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <br>
-    <img alt="UVic Logo" src="https://pbs.twimg.com/profile_images/663840484800901120/UnBWhPzn.jpg" style="width: 100px; display:block; margin:auto;">
-    <h1 class="text-center">Thanks for your charge submission!</h1>
-    <div class="info-space text-center">
-        <h3>We will follow up with you by sending a confirmation email.</h3>
+    <div class="info-space">
+        <h1 class="text-center"><i class="fa fa-thumbs-up fa-3x" aria-hidden="true"></i><br>Thanks!</h1>
         <br>
-        <a class="btn btn-success" href="{% url 'home' %}">Back home</a>
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4 col-sm-8 col-sm-offset-2 text-center">
+                <h3>We will follow up with you by sending a confirmation email.</h3>
+                <a class="btn btn-success btn-lg" href="{% url 'home' %}">Back home</a>
+            </div>
+        </div>
     </div>
 {% endblock content %}
