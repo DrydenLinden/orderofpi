@@ -10,11 +10,11 @@ def create_contract(request):
     contract_form = ContractForm(request.POST or None)
 
     if contract_form.is_valid():
-        contract_form.save()
+        contract = contract_form.save()
 
         # TODO: Need to send out an email out here
 
-        return HttpResponseRedirect(reverse('sent_contract'))
+        return HttpResponseRedirect(reverse('payments:online_payment', kwargs={'contract_id': contract.id}))
 
     context = {
         'contract_form': contract_form,

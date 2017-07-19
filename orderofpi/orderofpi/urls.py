@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^ranks/$', orderofpi_views.about, name='ranks'),
     url(r'^volunteer/', include('volunteers.urls')),
     url(r'^contract/', include('contracts.urls')),
+    url(r'^payments/', include('payments.urls', namespace='payments')),
     url(r'^admin/', admin.site.urls),
 ]
