@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.conf import settings
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from contracts.models import Contract
 from .models import Transaction
 from datetime import datetime
@@ -13,12 +14,15 @@ def online_payment(request, contract_id):
 
     contract = get_object_or_404(Contract , id=contract_id)
 
-    context = {'contract':contract, 'indicated_value': contract.indicated_value * 100, 'stripe_key': settings.STRIPE_TEST_API_KEY, 'contract_id':contract.id }
+    context = {
+        'contract':contract,
+        'indicated_value': contract.indicated_value * 100,
+        'stripe_key': settings.STRIPE_TEST_API_KEY,
+        'contract_id':contract.id
+    }
     return render(request, template, context)
 
 def checkout(request):
-
-    template = "orderofpi/home.html"
 
     contract = get_object_or_404(Contract, id=request.POST['contract_id'])
     stripe.api_key = settings.STRIPE_TEST_SECRET_API_KEY
@@ -85,15 +89,13 @@ def checkout(request):
         stripe_status=charge['status'],
         date=datetime.now()
     )
+    payment.save()
 
-    if payment.save():
-        messages.success(request, 'Payment Successful, Thank you!')
+    messages.success(request, 'Payment Successful, Thank you!')
+    return HttpResponseRedirect(reverse('sent_contract'))
 
-    return render(request,template)
 
 def pay_later(request):
-    template = "orderofpi/home.html"
-
-    messages.success(request, 'Contract Saved! To pay come into the ESS before the trial date.')
+    template = "payments/pay_later.html"
 
     return render(request, template)
