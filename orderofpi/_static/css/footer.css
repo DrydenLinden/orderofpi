@@ -2,7 +2,11 @@
     bottom: 0;
     margin-top: 75px;
     width: 100%;
-    padding: 40px 0 40px 0;
-    height: 140px;
+    padding: 60px 0;
     background-color: #f5f5f5;
+}
+
+.footer-title {
+    font-size: 25px;
+    line-height: 30px;
 }

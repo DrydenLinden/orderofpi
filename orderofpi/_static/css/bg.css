@@ -5,9 +5,11 @@
 
 .bg-home {
     margin-top: -20px;
-    background-image: url('https://c1.staticflickr.com/8/7146/6761342729_d80de54790_b.jpg');
+    background-image: linear-gradient(to bottom, rgba(9, 42, 87, 0.4), rgba(130, 80, 32, 0.6)), url('https://c1.staticflickr.com/8/7146/6761342729_d80de54790_b.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position-y: 35%;
+    background-position-x: center;
 }
 
 .bg-txt {

@@ -32,45 +32,45 @@ def checkout(request):
             description="Donation"
         )
 
-    except stripe.error.CardError, e:
+    except stripe.error.CardError as e:
         # Since it's a decline, stripe.error.CardError will be caught
         template = "payments/online_payment.html"
         messages.error(request,'Stripe Card Error.')
         return render(request, template, context=request.POST)
 
-    except stripe.error.RateLimitError, e:
+    except stripe.error.RateLimitError as e:
 
         template = "payments/online_payment.html"
         messages.error(request, 'Stripe request error.')
         return render(request, template, context=request.POST)
 
-    except stripe.error.InvalidRequestError, e:
+    except stripe.error.InvalidRequestError as e:
         # Invalid parameters were supplied to Stripe's API
         template = "payments/online_payment.html"
         messages.error(request, 'Invalid information')
         return render(request, template, context=request.POST)
 
-    except stripe.error.AuthenticationError, e:
+    except stripe.error.AuthenticationError as e:
         # Authentication with Stripe's API failed
         # (maybe you changed API keys recently)
         template = "payments/online_payment.html"
         messages.error(request, 'Something went wrong.')
         return render(request, template, context=request.POST)
 
-    except stripe.error.APIConnectionError, e:
+    except stripe.error.APIConnectionError as e:
         # Network communication with Stripe failed
         template = "payments/online_payment.html"
         messages.error(request, 'Couldn\'t connect to stripe')
         return render(request, template, context=request.POST)
 
-    except stripe.error.StripeError, e:
+    except stripe.error.StripeError as e:
         # Display a very generic error to the user, and maybe send
         # yourself an email
         template = "payments/online_payment.html"
         messages.error(request, 'Something went wrong.')
         return render(request, template, context=request.POST)
 
-    except Exception, e:
+    except Exception as e:
         # Something else happened, completely unrelated to Stripe
         template = "payments/online_payment.html"
         messages.error(request, 'Something went wrong.')
