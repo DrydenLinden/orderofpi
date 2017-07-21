@@ -10,7 +10,7 @@ Some undetailed instructions to kinda help you set it up.
 ### 2. Database
   1. If you don't already, get MySQL
   2. `mysql < dbinit.sql` to set up our database
-### 3. virtualenv and virtualenv
+### 3. virtualenv and virtualenvwrapper
 You will need to install virtualenvwrapper for this project. We will have some python dependencies for the project and it makes it super helpful when we have 3rd party packages.
   1. Download virtualenv (https://pypi.python.org/pypi/virtualenv)
   2. `pip install virtualenvwrapper` (https://virtualenvwrapper.readthedocs.io/en/latest/)
