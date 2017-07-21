@@ -5,27 +5,31 @@ from django.shortcuts import render
 
 # View for the homepage
 def home(request):
-    template = "orderofpi/home.html"
-    context = {}
-    return render(request, template, context)
+    pass
+    # template = "orderofpi/home.html"
+    # context = {}
+    # return render(request, template, context)
 
 
 # View for the about page
 def about(request):
-    template = "orderofpi/about.html"
-    context = {}
-    return render(request, template, context)
+    pass
+    # template = "orderofpi/about.html"
+    # context = {}
+    # return render(request, template, context)
 
 
 # View for the rules page
 def rules(request):
-    template = "orderofpi/rules.html"
-    context = {}
-    return render(request, template, context)
+    pass
+    # template = "orderofpi/rules.html"
+    # context = {}
+    # return render(request, template, context)
 
 
 # View for the rules page
 def ranks(request):
-    template = "orderofpi/ranks.html"
-    context = {}
-    return render(request, template, context)
+    pass
+    # template = "orderofpi/ranks.html"
+    # context = {}
+    # return render(request, template, context)

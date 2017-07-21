@@ -1,27 +1,27 @@
-<nav class="navbar navbar-default  navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <i class="fa fa-pie-chart" aria-hidden="true"></i> <span class="orderofpi-text">Order of Pi</span>
-            </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            {% if request.user.is_authenticated %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="{% url 'users-logout' %}">Log Out</a></li>
-                </ul>
-            {% else %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'users-login' %}">Log In</a></li>
-                </ul>
-            {% endif %}
-            <p class="navbar-text navbar-right" style="padding-right: 10px;">
-                {% if request.user.is_superuser %}
-                    Admin
-                {% elif request.user.is_staff %}
-                    Staff Member
-                {% endif %}
-            </p>
-        </div>
-    </div>
-</nav>
+<!--<nav class="navbar navbar-default  navbar-static-top">-->
+    <!--<div class="container">-->
+        <!--<div class="navbar-header">-->
+            <!--<a class="navbar-brand" href="{% url 'home' %}">-->
+                <!--<i class="fa fa-pie-chart" aria-hidden="true"></i> <span class="orderofpi-text">Order of Pi</span>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div id="navbar" class="navbar-collapse collapse">-->
+            <!--{% if request.user.is_authenticated %}-->
+                <!--<ul class="nav navbar-nav navbar-right">-->
+                    <!--<li class="active"><a href="{% url 'users-logout' %}">Log Out</a></li>-->
+                <!--</ul>-->
+            <!--{% else %}-->
+                <!--<ul class="nav navbar-nav navbar-right">-->
+                    <!--<li><a href="{% url 'users-login' %}">Log In</a></li>-->
+                <!--</ul>-->
+            <!--{% endif %}-->
+            <!--<p class="navbar-text navbar-right" style="padding-right: 10px;">-->
+                <!--{% if request.user.is_superuser %}-->
+                    <!--Admin-->
+                <!--{% elif request.user.is_staff %}-->
+                    <!--Staff Member-->
+                <!--{% endif %}-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
