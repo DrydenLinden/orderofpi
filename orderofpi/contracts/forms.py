@@ -1,11 +1,11 @@
 from datetimewidget.widgets import DateTimeWidget
-from django.forms import DateInput, ModelForm
+from django import forms
 from django.utils.translation import ugettext_lazy as _
 from .models import Contract
 
 
 # Contract form
-class ContractForm(ModelForm):
+class ContractForm(forms.ModelForm):
 
     class Meta:
         model = Contract
@@ -31,3 +31,8 @@ class ContractForm(ModelForm):
 
         self.fields['indicated_value'].widget.attrs['placeholder'] = '$20.00'
         self.fields['extend_id'].widget.attrs['placeholder'] = 'ex. bringbobtojustice'
+
+
+# Contract extension lookup
+class ContractLookUp(forms.Form):
+    extension_token = forms.CharField(max_length=60, help_text="This is the token that your friend gave you. It will be a short string such as '<b>bringbobtojustice</b>'.")

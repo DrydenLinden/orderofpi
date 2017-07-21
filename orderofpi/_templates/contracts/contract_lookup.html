@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <br>
+    <img alt="UVic Logo" src="https://pbs.twimg.com/profile_images/3348596357/01c1731a6f64972b1385fde1793e92d1_400x400.jpeg" style="width: 100px; display:block; margin:auto;">
+    <h1 class="text-center"><span class="orderofpi-text">Order of Pi</span><br><small>Lookup a contract</small></h1>
+    <div class="info-space">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4 col-sm-8 col-sm-offset-2">
+
+                <form method="post">
+                    {% csrf_token %}
+                    {{ contract_form|crispy }}
+                    <div class="text-center">
+                        <input class="btn btn-success" type="submit" value="Find" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
