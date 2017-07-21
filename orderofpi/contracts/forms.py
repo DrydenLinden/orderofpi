@@ -33,6 +33,9 @@ class ContractForm(forms.ModelForm):
         self.fields['extend_id'].widget.attrs['placeholder'] = 'ex. bringbobtojustice'
 
 
+    # TODO: Need to add a clean()
+
+
 # Contract extension lookup
-class ContractLookUp(forms.Form):
+class ContractLookUpForm(forms.Form):
     extend_id = forms.CharField(max_length=60, help_text="This is the token that your friend gave you. It will be a short string such as '<b>bringbobtojustice</b>'.")

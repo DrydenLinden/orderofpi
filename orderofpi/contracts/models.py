@@ -10,7 +10,7 @@ class Contract(models.Model):
     charges = models.TextField()
 
     # If the contract allows funds to be added using an extension id
-    extend_id = models.CharField(max_length=60, blank=True)
+    extend_id = models.CharField(max_length=60, blank=True, unique=True, null=True)
 
     # OoP Trial information
     trial_date = models.DateTimeField()

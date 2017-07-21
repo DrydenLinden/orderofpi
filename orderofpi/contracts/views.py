@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, reverse, redirect
-from .forms import ContractForm, ContractLookUp
+from .forms import ContractForm, ContractLookUpForm
 from .models import Contract
 
 
@@ -28,15 +28,19 @@ def create_contract(request):
 def contract_lookup(request):
     template = "contracts/contract_lookup.html"
 
-    contract_form = ContractLookUp(request.POST or None)
+    contract_form = ContractLookUpForm(request.POST or None)
 
     if contract_form.is_valid():
         extend_id = contract_form.cleaned_data['extend_id']
         contract = Contract.objects.get(extend_id=extend_id)
 
-        return redirect(reverse())
+        print(contract)
 
-    context = {}
+        # return redirect(reverse())
+
+    context = {
+        "form": contract_form,
+    }
     return render(request, template, context)
 
 
