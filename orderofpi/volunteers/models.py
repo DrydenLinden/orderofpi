@@ -4,7 +4,7 @@ from django.db import models
 # Volunteer Model
 class Volunteer(models.Model):
     name = models.CharField(max_length=30)
-    year = models.IntegerField()
+    date = models.DateField(auto_now_add=True)
     email = models.EmailField()
 
     # Phone information, we need it to send freeee texts
