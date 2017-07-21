@@ -18,4 +18,7 @@ class Transaction(models.Model):
 
     # Stripe attributes, can be empty due to cash transaction
     stripe_status = models.CharField(max_length=50, blank=True)
-    stripe_id = models.CharField(max_length=50, blank=True)
+    stripe_id = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.get_type_display() + " charge for $" + str(self.amount) + " on the date of " + str(self.date)
