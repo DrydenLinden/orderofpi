@@ -33,7 +33,8 @@ def checkout(request):
             amount=int(contract.indicated_value * 100),
             currency="cad",
             source=token,  # obtained with Stripe.js
-            description="Donation"
+            description="Donation",
+            receipt_email=request.POST['stripeEmail']
         )
 
     except stripe.error.CardError as e:
@@ -86,7 +87,7 @@ def checkout(request):
         amount=contract.indicated_value,
         email=request.POST['stripeEmail'],
         stripe_id=charge['id'],
-        stripe_status=charge['status'],
+        status=charge['status'],
         date=datetime.now()
     )
     payment.save()
