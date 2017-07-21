@@ -8,4 +8,4 @@ class VolunteerForm(ModelForm):
 
     class Meta:
         model = Volunteer
-        fields = ['name', 'year', 'email', 'phone_carrier', 'phone', 'executioner', 'pie_bearer', 'bard', 'inquisitor', 'counselor', 'undertaker']
+        fields = ['name', 'email', 'phone_carrier', 'phone', 'executioner', 'pie_bearer', 'bard', 'inquisitor', 'counselor', 'undertaker']
