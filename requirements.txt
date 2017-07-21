@@ -18,5 +18,5 @@ pyOpenSSL==17.1.0
 pytz==2017.2
 requests==2.18.1
 six==1.10.0
-stripe==1.19.1
+stripe==1.62.0
 urllib3==1.21.1
