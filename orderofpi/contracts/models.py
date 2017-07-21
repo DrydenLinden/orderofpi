@@ -22,6 +22,13 @@ class Contract(models.Model):
 
 # Contract notes model. Extension of the contract
 class ContractNotes(models.Model):
+
+    class Meta:
+        verbose_name_plural = "contract notes"
+
     contract = models.ForeignKey(Contract, on_delete=models.CASCADE)
     author = models.CharField(max_length=30)
-    text = models.CharField(max_length=200)
+    text = models.TextField()
+
+    def __str__(self):
+        return "Notes by " + self.author + " on " + self.contract.__str__()
