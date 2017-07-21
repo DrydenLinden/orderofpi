@@ -35,4 +35,4 @@ class ContractForm(forms.ModelForm):
 
 # Contract extension lookup
 class ContractLookUp(forms.Form):
-    extension_token = forms.CharField(max_length=60, help_text="This is the token that your friend gave you. It will be a short string such as '<b>bringbobtojustice</b>'.")
+    extend_id = forms.CharField(max_length=60, help_text="This is the token that your friend gave you. It will be a short string such as '<b>bringbobtojustice</b>'.")
