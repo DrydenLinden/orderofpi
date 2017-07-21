@@ -28,5 +28,6 @@ class TransactionAdmin(admin.ModelAdmin):
     list_display = ['contract', 'status']
     ordering = ['contract']
     actions = [refund_transaction]
+    readonly_fields=['status']
 
 admin.site.register(Transaction, TransactionAdmin)
