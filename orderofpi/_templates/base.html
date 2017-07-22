@@ -53,16 +53,20 @@
                 {% block container %}
                     <div class="container">
 
-                        {% block banner-title %}
-                            <div class="banner-title">
-                                <h1 class="text-center">
-                                    <span class="header-text">
-                                        {% block banner-title-content %}
-                                        {% endblock banner-title-content %}
-                                    </span>
-                                </h1>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                                {% block banner-title %}
+                                    <div class="banner-title">
+                                        <h1 class="text-center">
+                                            <span class="header-text">
+                                                {% block banner-title-content %}
+                                                {% endblock banner-title-content %}
+                                            </span>
+                                        </h1>
+                                    </div>
+                                {% endblock banner-title %}
                             </div>
-                        {% endblock banner-title %}
+                        </div>
 
                         {% block messages %}
                             <div class="row">
