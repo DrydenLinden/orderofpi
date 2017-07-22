@@ -29,7 +29,8 @@ class ContractForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ContractForm, self).__init__(*args, **kwargs)
 
-        self.fields['indicated_value'].widget.attrs['placeholder'] = '$20.00'
+        self.fields['indicated_value'].widget.attrs['placeholder'] = 'Min. $20.00'
+        self.fields['indicated_value'].widget.attrs['min'] = 20
         self.fields['extend_id'].widget.attrs['placeholder'] = 'ex. bringbobtojustice'
 
 

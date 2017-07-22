@@ -3,7 +3,10 @@ from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from contracts.models import Contract
+
 from .models import Transaction
+from .forms import ExtendContractExtensionForm
+
 from datetime import datetime
 import stripe
 
@@ -15,12 +18,40 @@ def online_payment(request, contract_id):
     contract = get_object_or_404(Contract , id=contract_id)
 
     context = {
-        'contract':contract,
+        'contract': contract,
         'indicated_value': contract.indicated_value * 100,
         'stripe_key': settings.STRIPE_TEST_API_KEY,
         'contract_id':contract.id
     }
     return render(request, template, context)
+
+
+# Extend contract (Add money to existing contract)
+def extend_contract(request, contract_id):
+    template = "payments/extend_contract.html"
+
+    contract = get_object_or_404(Contract, id=contract_id)
+    extend_form = ExtendContractExtensionForm(None)
+
+    donation_total = 0
+    transaction_set = contract.transaction_set.all()
+
+    if len(transaction_set) == 0:
+        donation_total = contract.indicated_value
+    else:
+        for transaction in transaction_set:
+            donation_total += transaction.amount
+
+
+    context = {
+        "donation_total": donation_total,
+        "contract": contract,
+        "form": extend_form,
+        'stripe_key': settings.STRIPE_TEST_API_KEY,
+        'contract_id': contract.id
+    }
+    return render(request, template, context)
+
 
 def checkout(request):
 
@@ -28,9 +59,17 @@ def checkout(request):
     stripe.api_key = settings.STRIPE_TEST_SECRET_API_KEY
     token = request.POST['stripeToken']
 
+    # This amount will handle whether the user is extending the transaction
+    extend_amount = request.POST.get('amount', "")
+
+    if extend_amount == "":
+        amount = contract.indicated_value
+    else:
+        amount = float(extend_amount)
+
     try:
         charge = stripe.Charge.create(
-            amount=int(contract.indicated_value * 100),
+            amount=int(amount * 100),
             currency="cad",
             source=token,  # obtained with Stripe.js
             description="Donation"

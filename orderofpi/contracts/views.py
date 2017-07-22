@@ -1,5 +1,7 @@
+from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
+
 from .forms import ContractForm, ContractLookUpForm
 from .models import Contract
 
@@ -32,23 +34,18 @@ def contract_lookup(request):
 
     if contract_form.is_valid():
         extend_id = contract_form.cleaned_data['extend_id']
-        contract = Contract.objects.get(extend_id=extend_id)
 
-        print(contract)
+        try:
+            contract = Contract.objects.get(extend_id=extend_id)
+            return redirect("payments:extend_contract", contract_id=contract.id)
+        except Contract.DoesNotExist:
+            messages.error(request, "Sorry, we couldn't find '" + extend_id + "' ¯\_(ツ)_/¯")
+            return redirect(reverse("contract_lookup"))
+
 
         # return redirect(reverse())
 
     context = {
         "form": contract_form,
     }
-    return render(request, template, context)
-
-
-# Extend contract (Add money to existing contract)
-def extend_contract(request, contract_id):
-    template = "contracts/extend_contract.html"
-
-
-
-    context = {}
     return render(request, template, context)
