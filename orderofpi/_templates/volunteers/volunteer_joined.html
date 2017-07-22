@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
+{% block banner-title-content %}
+    <i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i><br>Thanks for joining!
+{% endblock %}
+
 {% block content %}
-    <br>
-    <img alt="UVic Logo" src="https://pbs.twimg.com/profile_images/663840484800901120/UnBWhPzn.jpg" style="width: 100px; display:block; margin:auto;">
-    <h1 class="text-center">Thanks for joining!</h1>
-    <div class="banner text-center">
+    <div class="info-space text-center">
         <h3>We will follow up with you by sending a confirmation email.</h3>
         <br>
         <a class="btn btn-success" href="{% url 'home' %}">Back home</a>

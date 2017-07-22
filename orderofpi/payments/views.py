@@ -62,8 +62,10 @@ def checkout(request):
     # This amount will handle whether the user is extending the transaction
     extend_amount = request.POST.get('amount', "")
 
+    # Original contract
     if extend_amount == "":
         amount = contract.indicated_value
+    # Existing contract
     else:
         amount = float(extend_amount)
 
