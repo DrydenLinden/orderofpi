@@ -29,7 +29,7 @@ class Mailer():
         plaintext = get_template(plaintext_file)
         htmly     = get_template(htmly_file)
 
-        d = { 'volunteer_name': to_name }
+        d = { 'receive_name': to_name }
 
         from_email = 'charges@uvicorderofpi.ca'
         text_content = plaintext.render(d)

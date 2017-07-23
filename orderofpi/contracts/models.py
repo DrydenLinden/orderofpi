@@ -12,6 +12,7 @@ class Contract(models.Model):
 
     target = models.CharField(max_length=30)
     issuer = models.CharField(max_length=30)
+    issuer_email = models.EmailField()
     indicated_value = models.DecimalField(max_digits=10, decimal_places=2)
     issued_date = models.DateField(auto_now_add=True)
     charges = models.TextField()

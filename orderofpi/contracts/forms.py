@@ -9,7 +9,7 @@ class ContractForm(forms.ModelForm):
 
     class Meta:
         model = Contract
-        fields = ['issuer', 'target', 'charges', 'indicated_value', 'extend_id', 'trial_date', 'trial_location']
+        fields = ['issuer', 'issuer_email', 'target', 'charges', 'indicated_value', 'extend_id', 'trial_date', 'trial_location']
 
         labels = {
             'indicated_value': _("Donation amount"),
