@@ -17,9 +17,8 @@ class Contract(models.Model):
     charges = models.TextField()
     status = models.CharField(max_length=15, choices=STATUS_CHOICES, default='pending')
 
-
-    # If the contract allows funds to be added using an extension id
-    extend_id = models.CharField(max_length=60, blank=True, unique=True, null=True)
+        # If the contract allows funds to be added using an extension id
+    extend_id = models.CharField(max_length=60, blank=True)
 
     # OoP Trial information
     trial_date = models.DateTimeField()
@@ -29,7 +28,6 @@ class Contract(models.Model):
         return self.issuer + " is charging " + self.target + " $" + str(self.indicated_value) + " on the date of " + str(self.trial_date)
 
     def GetCommitedDonationTotal():
-
         return Contract.objects.filter(
                 models.Q(status='approved')
                 |models.Q(status='completed')
@@ -38,6 +36,7 @@ class Contract(models.Model):
     def GetActualDonationTotal():
         #to-do, trickier as this requires a mapping of the many-to-one relationship with 
         pass
+
 # Contract notes model. Extension of the contract
 class ContractNotes(models.Model):
 

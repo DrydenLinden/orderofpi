@@ -146,3 +146,6 @@ STRIPE_TEST_SECRET_API_KEY = 'sk_test_c6vmMkXKQFWDImHo4evkAbbw'
 # Registration
 REGISTRATION_OPEN = False
 LOGIN_REDIRECT_URL = '/'
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
