@@ -36,4 +36,9 @@ class Mailer():
         html_content = htmly.render(d)
         msg = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
         msg.attach_alternative(html_content, "text/html")
-        msg.send() 
+      	#try catch so rest of development can continue without mail server running 
+        try:
+        	msg.send()
+     	except ConnectionRefusedError:	
+     		print('WARNING: ConnectionRefusedError thrown, check orderofpi/settings.py for mail settings', file=sys.stderr)  
+
