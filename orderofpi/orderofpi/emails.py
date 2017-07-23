@@ -5,7 +5,7 @@ from django.core.mail import send_mail, BadHeaderError
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
-
+import sys
 
 #class that mails things for us
 class Mailer():
@@ -40,4 +40,4 @@ class Mailer():
         try:
             msg.send()
         except ConnectionRefusedError:	
-            print('WARNING: ConnectionRefusedError thrown, check orderofpi/settings.py for mail settings', file=sys.stderr)  
+            print('WARNING: ConnectionRefusedError, check orderofpi/settings.py for mail settings', file=sys.stderr)  
