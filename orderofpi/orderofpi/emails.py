@@ -38,7 +38,6 @@ class Mailer():
         msg.attach_alternative(html_content, "text/html")
       	#try catch so rest of development can continue without mail server running 
         try:
-        	msg.send()
-     	except ConnectionRefusedError:	
-     		print('WARNING: ConnectionRefusedError thrown, check orderofpi/settings.py for mail settings', file=sys.stderr)  
-
+            msg.send()
+        except ConnectionRefusedError:	
+            print('WARNING: ConnectionRefusedError thrown, check orderofpi/settings.py for mail settings', file=sys.stderr)  
