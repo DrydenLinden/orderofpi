@@ -14,9 +14,20 @@
         <meta name="author" content="UVic Order Of Pi">
         <link rel="icon" href="https://pbs.twimg.com/profile_images/3348596357/01c1731a6f64972b1385fde1793e92d1_400x400.jpeg">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        {# JS #}
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static 'third_party/bootstrap-datetimepicker/js/moment.js' %}"></script>
+        <script type="text/javascript" src="{% static 'third_party/bootstrap-3.3.7/js/transition.js' %}"></script>
+        <script type="text/javascript" src="{% static 'third_party/bootstrap-3.3.7/js/collapse.js' %}"></script>
+        <script type="text/javascript" src="{% static 'third_party/bootstrap-3.3.7/js/bootstrap.js' %}"></script>
+        <script type="text/javascript" src="{% static 'third_party/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js' %}"></script>
+
+        {# Fonts #}
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
+        {# CSS #}
+        <link rel="stylesheet" type="text/css" href="{% static 'third_party/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'third_party/bootstrap-3.3.7/css/bootstrap.css' %}">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{% static 'css/bg.css' %}">

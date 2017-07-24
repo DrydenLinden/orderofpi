@@ -22,6 +22,13 @@
     </div>
 {% endblock content %}
 
-{% block js-includes %}
-    {{ form.media }}
-{% endblock js-includes %}
+
+{% block js-inlines %}
+    $(function () {
+        $('#id_trial_date').datetimepicker({
+            format: "M/D/YYYY H:mm",
+            useCurrent: true,
+            sideBySide: true
+        });
+    });
+{% endblock %}
