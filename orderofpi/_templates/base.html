@@ -12,9 +12,10 @@
         <title>{% block head-title %}{% endblock %}</title>
         <meta name="description" content="{% block head-meta-description %}Order Of Pi by the UVic Engineering Student Society{% endblock %}">
         <meta name="author" content="UVic Order Of Pi">
-        <link rel="icon" href="https://pbs.twimg.com/profile_images/663840484800901120/UnBWhPzn.jpg">
+        <link rel="icon" href="https://pbs.twimg.com/profile_images/3348596357/01c1731a6f64972b1385fde1793e92d1_400x400.jpeg">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'third_party/bootstrap-3.3.7/css/bootstrap.css' %}">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -51,6 +52,21 @@
                 <!-- Main div for the page. -->
                 {% block container %}
                     <div class="container">
+
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                                {% block banner-title %}
+                                    <div class="banner-title">
+                                        <h1 class="text-center">
+                                            <span class="header-text">
+                                                {% block banner-title-content %}
+                                                {% endblock banner-title-content %}
+                                            </span>
+                                        </h1>
+                                    </div>
+                                {% endblock banner-title %}
+                            </div>
+                        </div>
 
                         {% block messages %}
                             <div class="row">

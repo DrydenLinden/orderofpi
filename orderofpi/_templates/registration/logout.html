@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+{% block banner-title-content %}
+    <i class="fa fa-pie-chart fa-2x" aria-hidden="true"></i><br>Logged out
+{% endblock %}
+
 {% block content %}
-    <br>
-    <img alt="UVic Logo" src="https://pbs.twimg.com/profile_images/663840484800901120/UnBWhPzn.jpg" style="width: 100px; display:block; margin:auto;">
-    <h1 class="text-center">Order of Pi <br><small>Logged out</small></h1>
     <div class="info-space">
         <div class="row">
             <div class="col-lg-4 col-lg-offset-4 col-sm-8 col-sm-offset-2">

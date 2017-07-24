@@ -3,7 +3,7 @@ from django.db import models
 
 # Transaction model
 class Transaction(models.Model):
-    contract = models.ForeignKey('contracts.Contract', on_delete=models.PROTECT)
+    contract = models.ForeignKey('contracts.Contract', on_delete=models.CASCADE)
 
     # Transaction basic details
     TYPE_CHOICES = (
