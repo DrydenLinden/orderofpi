@@ -33,7 +33,7 @@ class Contract(models.Model):
         return Contract.objects.filter(
                 models.Q(status='approved')
                 |models.Q(status='completed')
-                ).aggregate(models.Sum('indicated_value'))
+                ).aggregate(models.Sum('indicated_value'))['indicated_value__sum']
         
     def GetActualDonationTotal():
         #to-do, trickier as this requires a mapping of the many-to-one relationship with 

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from contracts.models import Contract
+
 # Views for base order of pi pages, depending on the logic in these... might be able to get away with just these being rendered in the urls section
 
 
@@ -7,6 +8,8 @@ from contracts.models import Contract
 def home(request):
     template = "orderofpi/home.html"
     context = {'CommitedDonationSum': Contract.GetCommitedDonationTotal()}
+    #import sys
+    #print('CommitedDonationSum = ' + str(Contract.GetCommitedDonationTotal()),sys.stderr)
     return render(request, template, context)
 
 
