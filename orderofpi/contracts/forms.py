@@ -1,4 +1,3 @@
-from datetimewidget.widgets import DateTimeWidget
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from .models import Contract
@@ -14,11 +13,6 @@ class ContractForm(forms.ModelForm):
         labels = {
             'indicated_value': _("Donation amount"),
             'extend_id': _('Extend identifier'),
-        }
-
-        widgets = {
-            # TODO: Need to get this widget to work
-            'trial_date': DateTimeWidget(attrs={'id':"div_id_trial_date"}, usel10n = False, bootstrap_version=3),
         }
 
         help_texts = {
