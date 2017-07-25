@@ -146,3 +146,9 @@ STRIPE_TEST_SECRET_API_KEY = 'sk_test_c6vmMkXKQFWDImHo4evkAbbw'
 # Registration
 REGISTRATION_OPEN = False
 LOGIN_REDIRECT_URL = '/'
+
+
+#use this command to run dev email server 
+# python -m smtpd -n -c DebuggingServer localhost:1025
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
