@@ -1,5 +1,6 @@
 from django.db import models
-
+from payments.models import Transaction
+        
 
 # Contract model. Used for...
 class Contract(models.Model):
@@ -38,6 +39,9 @@ class Contract(models.Model):
         #to-do, trickier as this requires a mapping of the many-to-one relationship with 
         pass
 
+    def GetActualDonation(self):
+        return self.transaction_set.all().aggregate(models.Sum('amount'))['amount__sum']
+        
 # Contract notes model. Extension of the contract
 class ContractNotes(models.Model):
 
