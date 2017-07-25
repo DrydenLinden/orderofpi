@@ -7,7 +7,7 @@ from contracts.models import Contract
 # View for the homepage
 def home(request):
     template = "orderofpi/home.html"
-    context = {'CommitedDonationSum': Contract.GetCommitedDonationTotal()}
+    context = {'CommitedDonationTotal': Contract.GetCommitedDonationTotal()}
     #import sys
     #print('CommitedDonationSum = ' + str(Contract.GetCommitedDonationTotal()),sys.stderr)
     return render(request, template, context)

@@ -11,8 +11,8 @@ from .forms import AuthenticationForm
 urlpatterns = [
     url(r'^$', orderofpi_views.home, name='home'),
     url(r'^about/$', orderofpi_views.about, name='about'),
-    url(r'^rules/$', orderofpi_views.about, name='rules'),
-    url(r'^ranks/$', orderofpi_views.about, name='ranks'),
+    url(r'^rules/$', orderofpi_views.rules, name='rules'),
+    url(r'^ranks/$', orderofpi_views.ranks, name='ranks'),
     url(r'^volunteer/', include('volunteers.urls')),
     url(r'^contract/', include('contracts.urls')),
     url(r'^payments/', include('payments.urls', namespace='payments')),
