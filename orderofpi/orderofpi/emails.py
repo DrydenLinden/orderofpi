@@ -9,7 +9,9 @@ import sys
 
 #class that mails things for us
 class Mailer():
-    def send_email(subject, message, to_email):
+
+    @classmethod
+    def send_email(self, subject, message, to_email):
         from_email = 'charges@uvicorderofpi.ca'    
 
         if subject and message and from_email:
@@ -23,8 +25,8 @@ class Mailer():
             #missing parameters
             #failure from other error checking
             pass
-
-    def send_html_email(plaintext_file, htmly_file, subject, to_name, to_email):
+    @classmethod
+    def send_html_email(self,plaintext_file, htmly_file, subject, to_name, to_email):
         # specific to instance
         plaintext = get_template(plaintext_file)
         htmly     = get_template(htmly_file)
@@ -39,5 +41,5 @@ class Mailer():
       	#try catch so rest of development can continue without mail server running 
         try:
             msg.send()
-        except ConnectionRefusedError:	
-            print('WARNING: ConnectionRefusedError, check orderofpi/settings.py for mail settings', file=sys.stderr)  
+        except:
+            print('WARNING: ConnectionRefusedError, check orderofpi/settings.py for mail settings', sys.stderr)

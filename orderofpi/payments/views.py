@@ -79,48 +79,17 @@ def checkout(request):
         )
 
     except stripe.error.CardError as e:
-        # Since it's a decline, stripe.error.CardError will be caught
-        template = "payments/online_payment.html"
-        messages.error(request,'Stripe Card Error.')
-        return render(request, template, context=request.POST)
+        template = "payments/pay_later.html"
+        context = {"text": "There was an error with the card please contact the Glorious Order of Pi at 250-721-8822 or come to the ESS Office at UVic "}
 
-    except stripe.error.RateLimitError as e:
-
-        template = "payments/online_payment.html"
-        messages.error(request, 'Stripe request error.')
-        return render(request, template, context=request.POST)
-
-    except stripe.error.InvalidRequestError as e:
-        # Invalid parameters were supplied to Stripe's API
-        template = "payments/online_payment.html"
-        messages.error(request, 'Invalid information')
-        return render(request, template, context=request.POST)
-
-    except stripe.error.AuthenticationError as e:
-        # Authentication with Stripe's API failed
-        # (maybe you changed API keys recently)
-        template = "payments/online_payment.html"
-        messages.error(request, 'Something went wrong.')
-        return render(request, template, context=request.POST)
-
-    except stripe.error.APIConnectionError as e:
-        # Network communication with Stripe failed
-        template = "payments/online_payment.html"
-        messages.error(request, 'Couldn\'t connect to stripe')
-        return render(request, template, context=request.POST)
-
-    except stripe.error.StripeError as e:
-        # Display a very generic error to the user, and maybe send
-        # yourself an email
-        template = "payments/online_payment.html"
-        messages.error(request, 'Something went wrong.')
-        return render(request, template, context=request.POST)
+        return render(request, template, context)
 
     except Exception as e:
         # Something else happened, completely unrelated to Stripe
-        template = "payments/online_payment.html"
-        messages.error(request, 'Something went wrong.')
-        return render(request, template, context=request.POST)
+        template = "payments/pay_later.html"
+        context = {"text": "Something went wrong, please contact the Glorious Order of Pi at 250-721-8822 or come to the ESS Office at UVic "}
+
+        return render(request, template, context)
 
     payment = Transaction(
         contract=contract,
@@ -139,5 +108,6 @@ def checkout(request):
 
 def pay_later(request):
     template = "payments/pay_later.html"
+    context = { "text": "Contract Saved! To pay come into the ESS before the trial date."}
 
-    return render(request, template)
+    return render(request, template, context)

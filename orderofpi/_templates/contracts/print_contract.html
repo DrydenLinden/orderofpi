@@ -1,85 +1,35 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <title>{% block head-title %}{% endblock %}</title>
-    <meta name="description" content="{% block head-meta-description %}Order Of Pi by the UVic Engineering Student Society{% endblock %}">
-    <meta name="author" content="UVic Order Of Pi">
-    <link rel="icon" href="https://pbs.twimg.com/profile_images/3348596357/01c1731a6f64972b1385fde1793e92d1_400x400.jpeg">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'third_party/bootstrap-3.3.7/css/bootstrap.css' %}">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bg.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/div.css' %}">
-{#    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">#}
-{#    <link rel="stylesheet" type="text/css" href="{% static 'css/orderofpi.css' %}">#}
-    {% block css-includes %}{% endblock %}
-
-    <style type="text/css">
-        {% block css-inlines %}
-        {% endblock %}
-    </style>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-<body>
+{% block body %}
     <div class="info-space">
         <div class="row">
-            <div class="panel-body text-center" style="background:url({%  static 'img/Scroll.png' %})">
+            <div class="panel-body text-center">
                 <br><br>
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-2 col-xs-6 col-xs-offset-0 text-center">
-                            <h3>By Authority of the Most Glorious Order of Pi<br><br></h3>
-                            <img src="{% static 'img/Pi_contract_logo.png' %}" style="width:100px;height:100px;"><br><br>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-2 col-xs-6 col-xs-offset-0 text-center">
-                        <p>We, the UVic Engineering Order of Pi, do hereby proclaim the offering of our services for the naming of charges for the year 2017! All ye who wish
-                            to see a friend or loved one stand trial must phone the most Glorious Order of Pi at 250-721-8822, or visit www.uvicorderofpi.ca to place thine order!
-                            The Court of the Inquisition shall be open from March the 13th to the 17th 2017, and NONE shall escape our Farm Fresh Wrath!</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-2 col-xs-6 col-xs-offset-0 text-center">
-                        <p>All proceeds will go to the Children's Health Foundation of Vancouver Island</p>
-                    </div>
-                </div>
-                <br>
+                    <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 text-center">
+                        <h3>By Authority of the Most Glorious Order of Pi<br><br></h3>
+                        <img src="{% static 'img/Pi_contract_logo.png' %}" style="width:100px;height:100px;"><br><br>
 
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-2 col-xs-6 col-xs-offset-0 text-center">
+                        <p>
+                            We, the UVic Engineering Order of Pi, do hereby proclaim the offering of our services for the naming of charges for the year 2017! All ye who wish
+                            to see a friend or loved one stand trial must phone the most Glorious Order of Pi at 250-721-8822, or visit www.uvicorderofpi.ca to place thine order!
+                            The Court of the Inquisition shall be open from March the 13th to the 17th 2017, and NONE shall escape our Farm Fresh Wrath!
+                        </p>
+
+                        <p>
+                            All proceeds will go to the Children's Health Foundation of Vancouver Island
+                        </p>
+
                         <p>We have been summoned to <b>{{ contract_info.trial_location }}</b></p>
                         <p>On today the <b>{{ contract_info.trial_date }}</b></p>
                         <p>By none other than <b>{{ contract_infor.issuer }}</b></p>
                         <p>So we may try <b>{{ contract_info.target }}</b></p>
                         <p>On the first degree charge of <br><b>{{ contract_info.charges }}</b></p>
                         <p>The donation of the accusor stands at <b>${{ contract_info.indicated_value }}</b></p>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-2 col-xs-6 col-xs-offset-0 text-center">
                         <p>In order to successfully plead their innocence, the defendant must pledge a donation of at least five dollars greater than this amount! If found guilty, the defendant shall suffer at the hand of our delicious justice!</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-2 col-xs-6 col-xs-offset-0 text-center">
+
                         <h>The Verdict: _________________</h><br><br>
                         <p>By the authority vested in my by the Glorious Order of Pi, This parchment shall protect the accused from furthur procecution. Keep it on your person for the remainder of the event </p>
                     </div>
@@ -87,6 +37,4 @@
             </div>
         </div>
     </div>
-
-</body>
-</html>
+{% endblock %}
