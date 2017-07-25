@@ -1,4 +1,3 @@
-from datetimewidget.widgets import DateTimeWidget
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from .models import Contract
@@ -27,7 +26,6 @@ class ContractForm(forms.ModelForm):
         self.fields['indicated_value'].widget.attrs['placeholder'] = 'Min. $20.00'
         self.fields['indicated_value'].widget.attrs['min'] = 20
         self.fields['extend_id'].widget.attrs['placeholder'] = 'ex. bringbobtojustice'
-        self.fields['trial_date'].widget.attrs['class'] = 'form-control'
 
 
     # TODO: Need to add a clean()

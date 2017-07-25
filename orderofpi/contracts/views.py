@@ -2,7 +2,7 @@
 
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.shortcuts import render, reverse, redirect
 
 from .forms import ContractForm, ContractLookUpForm
 from .models import Contract
@@ -44,8 +44,6 @@ def contract_lookup(request):
             messages.error(request, "Sorry, we couldn't find '" + extend_id + "' ¯\_(ツ)_/¯")
             return redirect(reverse("contract_lookup"))
 
-
-        # return redirect(reverse())
 
     context = {
         "form": contract_form,
