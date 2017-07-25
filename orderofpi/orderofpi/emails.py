@@ -41,5 +41,5 @@ class Mailer():
       	#try catch so rest of development can continue without mail server running 
         try:
             msg.send()
-        except:
+        except ConnectionRefusedError:
             print('WARNING: ConnectionRefusedError, check orderofpi/settings.py for mail settings', sys.stderr)
