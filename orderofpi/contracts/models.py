@@ -41,7 +41,7 @@ class Contract(models.Model):
 
     def GetActualDonation(self):
         return self.transaction_set.all().aggregate(models.Sum('amount'))['amount__sum']
-
+        
 # Contract notes model. Extension of the contract
 class ContractNotes(models.Model):
 
