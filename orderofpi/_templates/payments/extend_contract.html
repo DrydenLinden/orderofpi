@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags staticfiles %}
 
 {% block banner-title-content %}
     <i class="fa fa-money fa-2x" aria-hidden="true"></i><br>Add Donation to Contract
@@ -47,11 +47,13 @@
 
                             <div class="text-center">
                                 <script
-                                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                        src="https://checkout.stripe.com/checkout.js"
+                                        class="stripe-button"
                                         data-key="{{ stripe_key }}"
                                         data-name="UVic Order of Pi"
                                         data-description="Donation"
-                                        data-allow-remember-me="false">
+                                        data-allow-remember-me="false"
+                                        data-image="{% static 'img/orderofpi/pigear.png' %}">
                                 </script>
                             </div>
                         </form>
