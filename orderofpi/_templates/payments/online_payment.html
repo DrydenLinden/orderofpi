@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags staticfiles %}
 
 {% block banner-title-content %}
     <i class="fa fa-money fa-3x" aria-hidden="true"></i><br>Donation Options
@@ -38,13 +38,14 @@
                             <input type="hidden" name="contract_id" value="{{ contract_id }}"/>
                             <div class="text-center">
                                 <script
-                                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                        src="https://checkout.stripe.com/checkout.js"
+                                        class="stripe-button"
                                         data-key="{{ stripe_key }}"
                                         data-name="UVic Order of Pi"
                                         data-description="Donation"
                                         data-amount="{{ indicated_value }}"
                                         data-allow-remember-me="false"
-                                        data-image="https://pbs.twimg.com/profile_images/663840484800901120/UnBWhPzn.jpg">
+                                        data-image="{% static 'img/orderofpi/pigear.png' %}">
                                 </script>
                                 <a style="margin-left: 10px" href="{% url 'payments:pay_later' %}">Pay Later</a>
                             </div>
