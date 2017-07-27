@@ -25,7 +25,7 @@ def refund_transaction(modeladmin, request, queryset):
 refund_transaction.short_description = "Refund the selected Transactions"
 
 class TransactionAdmin(admin.ModelAdmin):
-    list_display = ['contract', 'status']
+    list_display = ['contract', 'amount', 'type', 'status']
     ordering = ['contract']
     actions = [refund_transaction]
     readonly_fields=['status']
