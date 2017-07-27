@@ -20,13 +20,13 @@ def sign_up(request):
     if volunteer_form.is_valid():
         volunteer_form.save()
 
-        Mailer.send_html_email(
-            plaintext_file='volunteers/thanks_email.txt', 
-            htmly_file='volunteers/thanks_email.html',
-            subject='Thanks for Signing up',
-            to_name=volunteer_form.cleaned_data['name'], 
-            to_email=volunteer_form.cleaned_data['email'] 
-        )
+        # Mailer.send_html_email(
+        #     plaintext_file='volunteers/thanks_email.txt',
+        #     htmly_file='volunteers/thanks_email.html',
+        #     subject='Thanks for Signing up',
+        #     to_name=volunteer_form.cleaned_data['name'],
+        #     to_email=volunteer_form.cleaned_data['email']
+        # )
 
  
         # TODO: Need to send out an email out here

@@ -19,21 +19,21 @@ def create_contract(request):
         contract = contract_form.save()
 
         #email issuer
-        Mailer.send_html_email(
-            plaintext_file='contracts/thanks_email.txt', 
-            htmly_file='contracts/thanks_email.html',
-            subject='Contract Submission',
-            to_name=contract_form.cleaned_data['issuer'], 
-            to_email=contract_form.cleaned_data['issuer_email'] 
-        )
+        # Mailer.send_html_email(
+        #     plaintext_file='contracts/thanks_email.txt',
+        #     htmly_file='contracts/thanks_email.html',
+        #     subject='Contract Submission',
+        #     to_name=contract_form.cleaned_data['issuer'],
+        #     to_email=contract_form.cleaned_data['issuer_email']
+        # )
         #notify organizers of new contract
-        Mailer.send_html_email(
-            plaintext_file='contracts/new_contract_email.txt', 
-            htmly_file='contracts/new_contract_email.html',
-            subject='New Contract Subbmited',
-            to_name='', 
-            to_email='esschar@uvic.ca' 
-        )
+        # Mailer.send_html_email(
+        #     plaintext_file='contracts/new_contract_email.txt',
+        #     htmly_file='contracts/new_contract_email.html',
+        #     subject='New Contract Subbmited',
+        #     to_name='',
+        #     to_email='esschar@uvic.ca'
+        # )
         
 
         return HttpResponseRedirect(reverse('payments:online_payment', kwargs={'contract_id': contract.id}))

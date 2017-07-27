@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block banner-title-content %}
+    500 Internal Server Error
+{% endblock %}
+
+{% block content %}
+    <div class="info-space text-center">
+        <h3>Well this is awkward... We'll try to resolve this as soon as possible!</h3>
+        <br>
+        <a class="btn btn-success" href="{% url 'home' %}">Back home</a>
+    </div>
+{% endblock content %}

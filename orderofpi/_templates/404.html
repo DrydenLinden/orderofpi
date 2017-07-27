@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block banner-title-content %}
+    404 Page Not Found
+{% endblock %}
+
+{% block content %}
+    <div class="info-space text-center">
+        <h3>Looks like we couldn't find what you are after. Our apologies!</h3>
+        <br>
+        <a class="btn btn-success" href="{% url 'home' %}">Back home</a>
+    </div>
+{% endblock content %}
