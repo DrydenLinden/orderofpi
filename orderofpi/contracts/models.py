@@ -43,6 +43,7 @@ class Contract(models.Model):
     @classmethod
     def GetActualDonationTotal(self):
         contracts = Contract.objects.filter(
+                models.Q(status='pending')
                 models.Q(status='approved')
                 |models.Q(status='completed')
                 )
