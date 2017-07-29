@@ -28,6 +28,10 @@ class Contract(models.Model):
 
     def __str__(self):
         return self.issuer + " is charging " + self.target + " $" + str(self.indicated_value) + " on the date of " + str(self.trial_date)
+        
+    def GetActualDonation(self):
+        return self.transaction_set.all().aggregate(models.Sum('amount'))['amount__sum']
+
 
     @classmethod
     def GetCommitedDonationTotal(self):
@@ -36,13 +40,15 @@ class Contract(models.Model):
                 |models.Q(status='completed')
                 ).aggregate(models.Sum('indicated_value'))['indicated_value__sum']
         
+    @classmethod
     def GetActualDonationTotal(self):
-        #to-do, trickier as this requires a mapping of the many-to-one relationship with 
-        pass
-
-    def GetActualDonation(self):
-        return self.transaction_set.all().aggregate(models.Sum('amount'))['amount__sum']
-        
+        contracts = Contract.objects.filter(
+                models.Q(status='approved')
+                |models.Q(status='completed')
+                )
+        return sum([c.GetActualDonation() for c in contracts])
+    
+          
 # Contract notes model. Extension of the contract
 class ContractNotes(models.Model):
 
