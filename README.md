@@ -1,12 +1,12 @@
 # orderofpi
-The Re-Order of Pi Project. It's gunna be HUUUUUGE.
+The Re-Order of Pi Project
 
 
 ## Order of operations (howtosetup):
 Some undetailed instructions to kinda help you set it up.
 ### 1. Init
   1. Create folder for project, something like OrderOfPi_Proj
-  2. Clone repo in dis folder
+  2. Clone repo in this folder
 ### 2. Database
   1. If you don't already, get MySQL
   2. `mysql < dbinit.sql` to set up our database
