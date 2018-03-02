@@ -18,6 +18,7 @@ class ContractForm(forms.ModelForm):
         help_texts = {
             'extend_id': _('If you want other people to add to this charge, use a unique extension ID.'),
             'charges': _('All charges must be both appropriate and amusing for Justice to be properly served: Running gags, pet peeves, or embarrassing incidents are all good sources of ideas for the charge you make against the Defendant. Be creative and use good taste, for the Justice of Pi is meant to be sweet!'),
+            'trial_location': _('If this is in a lecture, you must provide the professor\'s name'),
         }
 
     def __init__(self, *args, **kwargs):
