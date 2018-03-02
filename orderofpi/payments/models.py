@@ -24,6 +24,7 @@ class Transaction(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateTimeField(auto_now_add=True)
     email = models.EmailField()
+    recipient = models.CharField(max_length=25)
 
     # Stripe attributes, can be empty due to cash transaction
     status = models.CharField(max_length=50, blank=True, choices=STATUS_CHOICES)
